@@ -24,8 +24,11 @@ const Board = () => {
         }
         return null;
     };
-    
 
+    // NEW: check if the board is completely filled with no winner
+    const isDraw = () => {
+        return state.every((square) => square !== null) && !checkWinner();
+    };
 
     const handleClick = (index) => {
         if (checkWinner() || state[index]) {
@@ -40,8 +43,10 @@ const Board = () => {
     <div className="board-container"> 
     {checkWinner() ? (
         <><h2>Winner is: {checkWinner()}</h2><button onClick={() => setState(Array(9).fill(null))}>Play Again</button></>
+    ) : isDraw() ? (
+        // NEW: draw message block
+        <><h2>It's a Draw!</h2><button onClick={() => setState(Array(9).fill(null))}>Play Again</button></>
     ) : (
-        
         <>
         <h4>Player {xIsNext ? "X" : "O"} please make your move</h4><div className="board-row">
                       <Square value={state[0]} onClick={() => handleClick(0)} />

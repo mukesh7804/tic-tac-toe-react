@@ -1,9 +1,84 @@
-.board-row{
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  
+body {
+  background-color: #42553f;
+  font-family: 'Segoe UI', Arial, sans-serif;
 }
-.board-container{
-  margin: 20px;
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.board-container {
+  background-color: #b0d1b3;
+  padding: 30px 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.board-container h4 {
+  color: #0c0202;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.board-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+/* Targets every button directly inside board-row,
+   so it works no matter what class Square.js uses */
+.board-row button {
+  box-sizing: border-box;
+  width: 80px;
+  height: 80px;
+  min-width: 80px;
+  min-height: 80px;
+  max-width: 80px;
+  max-height: 80px;
+  font-size: 32px;
+  font-weight: bold;
+  color: #4a4a4a;
+  background-color: #ba7171;
+  border: 2px solid #570e0e;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.board-row button:hover {
+  background-color: #2b5672;
+  transform: scale(1.05);
+}
+
+.board-container h2 {
+  color: #2e7d32;
+  margin-bottom: 20px;
+}
+
+.board-container button:not(.board-row button) {
+  padding: 10px 24px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #4a90e2;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.board-container button:not(.board-row button):hover {
+  background-color: #357abd;
 }
